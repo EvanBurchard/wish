@@ -117,4 +117,15 @@ suite("wish tests", function(){
     };
     wish(error.name == "WishError" && error.message == '\n\tExpected "2" to be greater than or equal(>=) to "4".');
   });
+  test("provide a good message for null", function(){
+    var error = {};
+    try{
+      wish(null);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name == "WishError" && error.message == '\n\texpression: "null" evaluated to false');
+  });
+
 });
