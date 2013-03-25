@@ -1,0 +1,32 @@
+{
+  "name": "wish",
+  "description": "Assertions without special syntax",
+  "version": "0.0.3",
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EvanBurchard/wish.git"
+  },
+  "keywords": [
+    "asset",
+    "test",
+    "assertion"
+  ],
+  "author": "evanburchard",
+  "email": "evan.burchard@gmail.com"
+}
