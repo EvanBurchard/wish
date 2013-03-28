@@ -13,7 +13,7 @@ Wish takes one parameter: a JavaScript expression that will return true or false
 ## Without external testing framework
 You don't need a test framework like mocha to get benefit from wishing.  You can see if things are going wrong in your application by checking with a simple statement to make sure that the variable you are not sure about equals 5:
 
-    wish(variable_I_am_not_sure_about, 5);
+    wish(variable_I_am_not_sure_about === 5);
 
 Used this way, it's like console.assert, but with better error messages.  
 
