@@ -72,6 +72,7 @@ Any normal JavaScript should work inside of a wish statement.  For example, thes
     wish(!!4.33);
 
 These will throw an error, because the values returned are falsy.  Their error messages will display the expression passed in.
+
     wish(null);
     wish(undefined);
     wish('');
@@ -84,6 +85,7 @@ These will throw an error, because the values returned are falsy.  Their error m
     wish(!true);
 
 These will throw an error, because they are damned lies.  Their error messages will display the expression with an expectation in a human readable format.  
+
     wish(3 == 5);
     wish(9 === 4);
     wish(100 < 4);
