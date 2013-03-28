@@ -107,7 +107,7 @@ There are a lot of fancy tests that other assertion libraries perform.  All asse
 
 ## Thanks 
 
-I hope you get some value out of wish.  If you want to get in touch outside of github, you can email me at <firstname>.<lastname>+wish@gmail.com.
+I hope you get some value out of wish.  If you want to get in touch outside of github, you can email me at myfirstname.mylastname+wish@gmail.com.
 
 Cheers,
 
