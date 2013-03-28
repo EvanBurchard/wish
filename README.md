@@ -96,7 +96,7 @@ These will throw an error, because they are damned lies.  Their error messages w
 ## Contributing
 Pull requests and comments are welcome.  Please write tests if you are so inclined.
 
-"khoomeister" has brought up the possibility that the error messages for parsable comparisons (===, !=, etc) should be the expression, as with wish(true) statements, rather than the human readable format.  If you have an opinion, feel free to submit a pull request and/or weigh in here: https://github.com/EvanBurchard/wish/issues/1
+"khoomeister" has brought up the possibility that the error messages for parsable comparisons (===, !=, etc) should be the expression, as with statements lacking a comparison operator, rather than the human readable format.  If you have an opinion, feel free to submit a pull request and/or weigh in here: https://github.com/EvanBurchard/wish/issues/1
 
 Note: There is a bit of extra complexity that comes with having wish test itself.  The wish(wish(something) == something) meta assertions do not have fantastic errors along with their failures.  To keep things simple and avoid a more complex code parsing system, this is not a priority.  
 
