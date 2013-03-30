@@ -94,11 +94,13 @@ These will throw an error, because they are damned lies.  Their error messages w
 
 
 ## Contributing
-Pull requests and comments are welcome.  Please write tests if you are so inclined.
+Pull requests and comments are welcome.  
 
-"khoomeister" has brought up the possibility that the error messages for parsable comparisons (===, !=, etc) should be the expression, as with statements lacking a comparison operator, rather than the human readable format.  If you have an opinion, feel free to submit a pull request and/or weigh in here: https://github.com/EvanBurchard/wish/issues/1
+Note: There is a bit of extra complexity that comes with having wish test itself.  The wish(wish(something) == something) meta assertions do not yet have fantastic errors along with their failures.  To keep things simple and avoid a more complex code parsing system, this is not a priority.  
 
-Note: There is a bit of extra complexity that comes with having wish test itself.  The wish(wish(something) == something) meta assertions do not have fantastic errors along with their failures.  To keep things simple and avoid a more complex code parsing system, this is not a priority.  
+## Roadmap
+- Support for client-side assertions.
+- In order to provide more detailed error messages, esprima should be used to split out the expression into an AST.
 
 ## Considerations and Limitations
 Although tests will still pass/fail appropriately, in order to see good error messages, wish statements should be on one line.  Arguably, you shouldn't have assertions that take up multiple lines anyways.
@@ -108,6 +110,8 @@ There are a lot of fancy tests that other assertion libraries perform.  All asse
 ## Thanks 
 
 I hope you get some value out of wish.  If you want to get in touch outside of github, you can email me at myfirstname.mylastname+wish@gmail.com.
+
+Big thanks to khoomeister for his contributions of better modularity and alternative error messages (check out the wishe.js and get-expression.js files).
 
 Cheers,
 
