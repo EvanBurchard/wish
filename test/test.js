@@ -1,7 +1,7 @@
 var fs = require('fs');
 var wish = require("../index");
 
-suite("wish tests", function(){
+describe("wish tests", function(){
   test("should confirm true statements are wished as true", function(){
     wish(wish(5 == 5)==true);
     wish(wish(4 === 4)==true);
@@ -23,7 +23,7 @@ suite("wish tests", function(){
       error.name = e.name;
       error.message = e.message;
     };
-    wish(error.name == "WishError" && error.message == '\n\texpression: "false" evaluated to false');
+    wish(error.name == "WishError" && error.message == '\n\texpression: "false" evaluated to falsey');
   });
 
   test("give an error descibing the expression if no conditional operator is present (ie. 0)", function(){
@@ -34,7 +34,7 @@ suite("wish tests", function(){
       error.name = e.name;
       error.message = e.message;
     };
-    wish(error.name == "WishError" && error.message == '\n\texpression: "0" evaluated to false');
+    wish(error.name == "WishError" && error.message == '\n\texpression: "0" evaluated to falsey');
   });
 
   test("return a decent error for ==", function(){
@@ -133,6 +133,92 @@ suite("wish tests", function(){
       error.name = e.name;
       error.message = e.message;
     };
-    wish(error.name == "WishError" && error.message == '\n\texpression: "null" evaluated to false');
+    wish(error.name == "WishError" && error.message == '\n\texpression: "null" evaluated to falsey');
   });
+
 });
+
+describe("characterization tests", function(){
+  test("be useful for characterization tests of simple variables", function(){
+    var error = {};
+    var knownValue = 3;
+    try{
+      wish(knownValue, true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === 'knownValue evaluated to 3');
+  });
+  //not handling this case
+  //test("can parse when second argument and knownValue variable are complex", function(){
+    //var error = {};
+    //var knownValue = [8, 0];
+    //try{
+      //wish(knownValue,    !![2,3,4]);
+    //}catch(e){
+      //error.name = e.name;
+      //error.message = e.message;
+    //};
+    //wish(error.name === 'WishCharacterization');
+    //wish(error.message === 'knownValue evaluated to 8,0');
+  //});
+  test("can parse when characterizing a number", function(){
+    var error = {};
+    try{
+      wish(3, true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === '3 evaluated to 3');
+  });
+  test("can parse when characterizing a string", function(){
+    var error = {};
+    try{
+      wish('hi', true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === "'hi' evaluated to \"hi\"");
+  });
+  test("can ignore commas in strings", function(){
+    var error = {};
+    try{
+      wish("hi, I'm a test", true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === "\"hi, I'm a test\" evaluated to \"hi, I'm a test\"");
+  });
+  test("be useful for characterization tests of arrays", function(){
+    var error = {};
+    var knownValue = [4,5,6];
+    try{
+      wish(knownValue, true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === 'knownValue evaluated to [4,5,6]');
+  });
+  test("be useful for characterization tests of objects", function(){
+    var error = {};
+    var knownValue = {a:4,b:5,c:6};
+    try{
+      wish(knownValue, true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === "knownValue evaluated to {\"a\":4,\"b\":5,\"c\":6}");
+  });
+})
