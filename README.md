@@ -84,7 +84,7 @@ These will throw an error, because the values returned are falsy.  Their error m
     wish(!!false);
     wish(!true);
 
-These will throw an error, because they are damned lies.  Their error messages will display the expression with an expectation in a human readable format.  
+These will throw an error, because they are damned lies.  Their error messages will display the expression with an expectation in a human readable format.
 
     wish(3 == 5);
     wish(9 === 4);
@@ -94,20 +94,28 @@ These will throw an error, because they are damned lies.  Their error messages w
 
 
 ## Contributing
-Pull requests and comments are welcome.  
+Pull requests and comments are welcome.
 
-Note: There is a bit of extra complexity that comes with having wish test itself.  The wish(wish(something) == something) meta assertions do not yet have fantastic errors along with their failures.  To keep things simple and avoid a more complex code parsing system, this is not a priority.  
+Note: There is a bit of extra complexity that comes with having wish test itself.  The wish(wish(something) == something) meta assertions do not yet have fantastic errors along with their failures.  To keep things simple and avoid a more complex code parsing system, this is not a priority.
 
 ## Roadmap
-- Support for client-side assertions.
-- In order to provide more detailed error messages, esprima should be used to split out the expression into an AST.
+- Don't swallow original stack trace
+- Support for assertions in browsers.
+- Support for node command line
 
 ## Considerations and Limitations
 Although tests will still pass/fail appropriately, in order to see good error messages, wish statements should be on one line.  Arguably, you shouldn't have assertions that take up multiple lines anyways.
 
-There are a lot of fancy tests that other assertion libraries perform.  All assertions inside of wish are just code, so if you want to test existence, if something will throw an error, or some other higher level idea, you will have to use one of those libraries, or write the functions to check for those yourself.  
+There are a lot of fancy tests that other assertion libraries perform.  All assertions inside of wish are just code, so if you want to test existence, if something will throw an error, or some other higher level idea, you will have to use one of those libraries, or write the functions to check for those yourself.
 
-## Thanks 
+In particular, you might miss assert.deepEqual for its ability to check
+objects and arrays. You can import a standalone
+library easily with npm install deep-equal and require it with
+deepEqual = require('deep-equal');
+Then use it in assertions like this:
+wish(deepEqual(arrayOrObjectOne, arrayOrObjectTwo));
+
+## Thanks
 
 I hope you get some value out of wish.  If you want to get in touch outside of github, you can email me at myfirstname.mylastname+wish@gmail.com.
 
