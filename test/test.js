@@ -221,4 +221,17 @@ describe("characterization tests", function(){
     wish(error.name === 'WishCharacterization');
     wish(error.message === "knownValue evaluated to {\"a\":4,\"b\":5,\"c\":6}");
   });
+  test("be useful for characterization tests of maps", function(){
+    var error = {};
+    var map = new Map()
+    map.set('key2', 'value2');
+    try{
+      wish(map, true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === "map evaluated to [[\"key2\",\"value2\"]]");
+  });
 })
