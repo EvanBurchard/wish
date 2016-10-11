@@ -234,4 +234,18 @@ describe("characterization tests", function(){
     wish(error.name === 'WishCharacterization');
     wish(error.message === "map evaluated to [[\"key2\",\"value2\"]]");
   });
-})
+  test("be useful for characterization tests of sets", function(){
+    var error = {};
+    var set = new Set();
+    set.add('value1');
+    set.add('value2');
+    try{
+      wish(set, true);
+    }catch(e){
+      error.name = e.name;
+      error.message = e.message;
+    };
+    wish(error.name === 'WishCharacterization');
+    wish(error.message === "set evaluated to [\"value1\",\"value2\"]");
+  });
+});
