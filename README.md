@@ -18,13 +18,14 @@ And wish away:
 ```
 wish(five() === 5);
 wish(thisFunctionShouldBeTrue());
-
 ```
 
 ## Basic Usage
 Wish assertions look like this:
-    wish(5 === 5);
 
+```
+wish(5 === 5);
+```
 No need to learn a new syntax in order to write assertions.
 
 Wish takes one parameter: a JavaScript expression that will return true or false.  If it fails, the exception will be passed on to the testing framework.  If it passes, it will return true and no exception will be thrown.
@@ -178,13 +179,13 @@ There are a lot of fancy tests that other assertion libraries perform.  All asse
 In particular, you might miss ```assert.deepEqual``` for its ability to check
 objects and arrays. You can import a standalone
 library easily with npm install deep-equal and require it with
-deepEqual = require('deep-equal');
+```deepEqual = require('deep-equal');```
 Then use it in assertions like this:
-wish(deepEqual(arrayOrObjectOne, arrayOrObjectTwo));
+```wish(deepEqual(arrayOrObjectOne, arrayOrObjectTwo));```
 
 ## Thanks
 
-I hope you get some value out of wish.  If you want to get in touch outside of github, you can get in touch through evanburchard.com/contact.
+I hope you get some value out of wish.  If you want to get in touch outside of github, you can get in touch through [evanburchard.com/contact](http://evanburchard.com/contact).
 
 Big thanks to khoomeister for his contributions of better modularity and alternative error messages (check out the wishe.js and get-expression.js files).
 
