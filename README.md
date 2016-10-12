@@ -1,10 +1,29 @@
 Do you ever forget whether your assertion library syntax is "5.should eq(5)" or "should.equal(5, 5)" or "5.should.strictEqual(5)" or "should.be.ok(5, 5)"?
 
-I do. All the damn time.  _Wish_ lets you test code, not your memory of ever changing matcher syntax that varies from testing library to testing library.
+I do. All the damn time.  _Wish_ lets you test code, not your memory of ever changing matcher syntax that varies from testing library to testing library and project to project.
+
+## Installation:
+```
+npm install wish
+```
+
+Then in your file or in a node REPL:
+
+```
+const wish = require('wish');
+```
+
+And wish away:
+
+```
+wish(five() === 5);
+wish(thisFunctionShouldBeTrue());
+
+```
 
 ## Basic Usage
 Wish assertions look like this:
-    wish(5 == 5);
+    wish(5 === 5);
 
 No need to learn a new syntax in order to write assertions.
 
