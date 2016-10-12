@@ -249,3 +249,13 @@ describe("characterization tests", function(){
     wish(error.message === "set evaluated to [\"value1\",\"value2\"]");
   });
 });
+
+describe("environment", function(){
+  let deepEqual = require('deep-equal');
+  test("know when you're in a file", function(){
+    if(require.main){
+      wish(deepEqual(Object.create(require.main), {}));
+    }
+  });
+
+});
