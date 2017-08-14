@@ -1,10 +1,10 @@
 {
   "name": "wish",
   "description": "Assertions without special syntax",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "devDependencies": {
-    "deep-equal": "^1.0.1",
-    "mocha": "~1.8.2"
+    "mocha": "~1.8.2",
+    "deep-equal": "^1.0.1"
   },
   "scripts": {
     "test": "make test"
@@ -26,5 +26,8 @@
     "assertion"
   ],
   "author": "evanburchard",
-  "email": "evan.burchard@gmail.com"
+  "email": "evan.burchard@gmail.com",
+  "engines": {
+    "node": ">=7.7.1"
+  }
 }
