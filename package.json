@@ -3,7 +3,8 @@
   "description": "Assertions without special syntax",
   "version": "0.1.2",
   "devDependencies": {
-    "mocha": "*"
+    "deep-equal": "^1.0.1",
+    "mocha": "~1.8.2"
   },
   "scripts": {
     "test": "make test"
@@ -14,9 +15,6 @@
   "directories": {
     "doc": "docs",
     "test": "test"
-  },
-  "devDependencies": {
-    "mocha": "~1.8.2"
   },
   "repository": {
     "type": "git",
