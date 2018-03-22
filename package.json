@@ -1,7 +1,7 @@
 {
   "name": "wish",
   "description": "Assertions without special syntax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "mocha": "~1.8.2",
     "deep-equal": "^1.0.1"
